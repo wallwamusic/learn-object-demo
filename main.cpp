@@ -1,10 +1,11 @@
 #include <iostream>
 void testZhiZhen();
 void testZhiXiangZhiZhenZhiZhen();
+void testMainChuanCan(int argc, char** argv);
 
 int main(int argc, char** argv)
 {
-	testZhiXiangZhiZhenZhiZhen();
+	testMainChuanCan(argc, argv);
 	return 0;
 }
 
@@ -51,4 +52,15 @@ void testZhiXiangZhiZhenZhiZhen() {
 	std::cout << "q的值为:" << q << std::endl;
 	std::cout << "指针变量q的地址为:" << *q << std::endl;
 	std::cout << "指针变量q的存储变量数值为:" << **q << std::endl;
+}
+
+
+void testMainChuanCan(int argc, char** argv) {
+	char** temp = argv;  /* 保留argv */
+	int i = 0;
+	std::cout << "传入参数的长度:" << argc << std::endl;
+	while (*temp != NULL) {
+		std::cout << i++ << ": " << *temp << std::endl;
+		++temp;
+	}
 }
