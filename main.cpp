@@ -1,9 +1,10 @@
 #include <iostream>
 void testZhiZhen();
+void testZhiXiangZhiZhenZhiZhen();
 
 int main(int argc, char** argv)
 {
-	testZhiZhen();
+	testZhiXiangZhiZhenZhiZhen();
 	return 0;
 }
 
@@ -36,4 +37,18 @@ void testZhiZhen() {
 	std::cout << "q的值为:" << q << std::endl;
 	std::cout << "*p的值为:" << *p << std::endl;
 	std::cout << "*q的值为:" << *q << std::endl;
+}
+
+void testZhiXiangZhiZhenZhiZhen() {
+	int x = 100;
+	int* p = &x;
+	int** q = &p;
+	std::cout << "变量x的值为:" << x << std::endl;
+	std::cout << "变量x的地址为:" << &x << std::endl;
+	std::cout << "指针变量p指向的地址为:" << p << std::endl;
+	std::cout << "指针变量p的值为:" << *p << std::endl;
+	std::cout << "指针变量p的地址为:" << &p << std::endl;
+	std::cout << "q的值为:" << q << std::endl;
+	std::cout << "指针变量q的地址为:" << *q << std::endl;
+	std::cout << "指针变量q的存储变量数值为:" << **q << std::endl;
 }
