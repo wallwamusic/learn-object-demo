@@ -1,7 +1,15 @@
 #include <iostream>
+void testZhiZhen();
 
 int main(int argc, char** argv)
 {
+	testZhiZhen();
+	return 0;
+}
+
+
+void testZhiZhen() {
+
 	int x = 100;
 	int y = 200;
 	int* p, * q;
