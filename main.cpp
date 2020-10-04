@@ -1,11 +1,14 @@
 #include <iostream>
+#include "Circle.h"
+
 void testZhiZhen();
 void testZhiXiangZhiZhenZhiZhen();
 void testMainChuanCan(int argc, char** argv);
+void testOOP();
 
 int main(int argc, char** argv)
 {
-	testMainChuanCan(argc, argv);
+	testOOP();
 	return 0;
 }
 
@@ -54,7 +57,6 @@ void testZhiXiangZhiZhenZhiZhen() {
 	std::cout << "指针变量q的存储变量数值为:" << **q << std::endl;
 }
 
-
 void testMainChuanCan(int argc, char** argv) {
 	char** temp = argv;  /* 保留argv */
 	int i = 0;
@@ -63,4 +65,12 @@ void testMainChuanCan(int argc, char** argv) {
 		std::cout << i++ << ": " << *temp << std::endl;
 		++temp;
 	}
+}
+
+void testOOP() {
+	Circle a(10.0);
+	Circle* p = &a;
+	std::cout << "圆的面积为:" << a.Area() << std::endl;
+	std::cout << "圆的面积为:" << p->Area() << std::endl;
+	std::cout << "这个对象的地址为:" << &a << std::endl;
 }
