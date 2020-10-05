@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CIRCLE_H
+#define CIRCLE_H
 class Circle
 {
 private:
@@ -9,4 +10,7 @@ public:
 	~Circle();
 	double Area();
 };
+#endif // CIRCLE_H
+
+
 

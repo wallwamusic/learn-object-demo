@@ -72,5 +72,5 @@ void testOOP() {
 	Circle* p = &a;
 	std::cout << "圆的面积为:" << a.Area() << std::endl;
 	std::cout << "圆的面积为:" << p->Area() << std::endl;
-	std::cout << "这个对象的地址为:" << &a << std::endl;
+	std::cout << "这个对象的地址为:" << &a << "   " << p << std::endl;
 }
