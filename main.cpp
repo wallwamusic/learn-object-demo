@@ -1,14 +1,17 @@
 #include <iostream>
 #include "Circle.h"
+#include <fstream>
+#include <string>
 
 void testZhiZhen();
 void testZhiXiangZhiZhenZhiZhen();
 void testMainChuanCan(int argc, char** argv);
 void testOOP();
+void handleFile();
 
 int main(int argc, char** argv)
 {
-	testOOP();
+	handleFile();
 	return 0;
 }
 
@@ -73,4 +76,21 @@ void testOOP() {
 	std::cout << "圆的面积为:" << a.Area() << std::endl;
 	std::cout << "圆的面积为:" << p->Area() << std::endl;
 	std::cout << "这个对象的地址为:" << &a << "   " << p << std::endl;
+}
+
+
+void handleFile() {
+	std::ifstream infile;
+	infile.open("D:\\test.txt");
+	if (!infile.is_open()) {
+		std::cerr << "文件已经打开了" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	std::string line;
+	std::cout << "开始读取文件!" << std::endl;
+	while (getline(infile, line)) {
+		std::cout << "文件内容为:" << line << std::endl;
+	}
+	std::cout << "文件读取完毕!" << std::endl;
+	infile.close();
 }
