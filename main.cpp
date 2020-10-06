@@ -14,6 +14,7 @@ void testMianCanShu(int argc, char** argv);
 
 int main(int argc, char** argv)
 {
+	testArray();
 	return 0;
 }
 
@@ -122,10 +123,17 @@ void testArray()
 	//}
 
 	//声明初始化一个指向二维数组第二行的指针
-	int* listPtr = list[0];//等效于int* listPtr = &list[1][0];
+	int(*listPtr)[2] = list;//等效于int* listPtr = &list[1][0];
 	std::cout << listPtr << std::endl;
-	std::cout << listPtr + 1 << std::endl;
-	std::cout << ++listPtr << std::endl;
+	std::cout << &list[0][0] << std::endl;
+	std::cout << list[0] << std::endl;
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 2; j++) {
+			std::cout << "list[" << i << "][" << j << "]的地址为:" << &list[i][j] << ",listPtr:" <<
+				&listPtr[i][j] << "第" << i << "行,第" << j << "列的值为:" << *((*listPtr + i) + j) << std::endl;
+		}
+	}
 	//std::cout << "第1行第2列的值为:" << *(listPtr + 1) << std::endl;
 	//++listPtr;
 	//std::cout << "第2行第2列的值为:" << *(listPtr + 1) << std::endl;
