@@ -8,10 +8,12 @@ void testZhiXiangZhiZhenZhiZhen();
 void testMainChuanCan(int argc, char** argv);
 void testOOP();
 void handleFile();
+void testArray();
+void testPointerCanShu();
+void testMianCanShu(int argc, char** argv);
 
 int main(int argc, char** argv)
 {
-	handleFile();
 	return 0;
 }
 
@@ -47,17 +49,17 @@ void testZhiZhen() {
 }
 
 void testZhiXiangZhiZhenZhiZhen() {
-	int x = 100;
-	int* p = &x;
-	int** q = &p;
-	std::cout << "变量x的值为:" << x << std::endl;
-	std::cout << "变量x的地址为:" << &x << std::endl;
-	std::cout << "指针变量p指向的地址为:" << p << std::endl;
-	std::cout << "指针变量p的值为:" << *p << std::endl;
-	std::cout << "指针变量p的地址为:" << &p << std::endl;
-	std::cout << "q的值为:" << q << std::endl;
-	std::cout << "指针变量q的地址为:" << *q << std::endl;
-	std::cout << "指针变量q的存储变量数值为:" << **q << std::endl;
+	int var = 10;
+	int* ptr = &var;
+	int** p = &ptr;
+	std::cout << "var：" << var << std::endl;
+	std::cout << "&var:" << &var << std::endl;
+	std::cout << "ptr:" << ptr << std::endl;
+	std::cout << "*ptr:" << *ptr << std::endl;
+	std::cout << "&ptr:" << &ptr << std::endl;
+	std::cout << "p:" << p << std::endl;
+	std::cout << "*p:" << *p << std::endl;
+	std::cout << "**p:" << **p << std::endl;
 }
 
 void testMainChuanCan(int argc, char** argv) {
@@ -93,4 +95,59 @@ void handleFile() {
 	}
 	std::cout << "文件读取完毕!" << std::endl;
 	infile.close();
+}
+
+void testArray()
+{
+	//一维数组
+	//int a[3];
+	//a[0] = 100;
+	//a[1] = 200;
+	//a[2] = 300;
+	//std::cout << sizeof(a) / sizeof(a[0]) << std::endl;
+	//std::cout << "数组存储地址为:" << &a << "," << a << std::endl;
+	//int* ptr = a;
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	std::cout << "地址为:" << (a + i) << "值为:" << a[i] << ",使用指针取值:" << *(ptr + i) << std::endl;
+	//}
+
+	//二维数组
+	int list[3][2] = { {1,2},{3,4},{5,6} };
+	//for (int i = 0; i < 3; i++)
+	//{
+	//	for (int j = 0; j < 2; j++) {
+	//		std::cout << "第" << i << "行,第" << j << "列的值为:" << list[i][j] << std::endl;
+	//	}
+	//}
+
+	//声明初始化一个指向二维数组第二行的指针
+	int* listPtr = list[0];//等效于int* listPtr = &list[1][0];
+	std::cout << listPtr << std::endl;
+	std::cout << listPtr + 1 << std::endl;
+	std::cout << ++listPtr << std::endl;
+	//std::cout << "第1行第2列的值为:" << *(listPtr + 1) << std::endl;
+	//++listPtr;
+	//std::cout << "第2行第2列的值为:" << *(listPtr + 1) << std::endl;
+}
+
+void testPointerCanShu() {
+	char mes[2][11] = { {"helloworld"},{"ilovechina"} };
+	char* ptr = mes[0];
+	std::cout << "&mes:" << &mes << std::endl;
+	std::cout << "ptr:" << ptr + 11 << std::endl;
+	std::cout << "*ptr:" << *ptr << std::endl;
+}
+
+void testMianCanShu(int argc, char** argv)
+{
+	std::cout << "参数个数:" << argc << std::endl;
+	std::string s;
+	++argv;
+	for (int i = 1; i < argc; i++) {
+		std::cout << *argv << std::endl;
+		s = s + *argv + " ";
+		++argv;
+	}
+	std::cout << "命令行详细参数为:" << s << std::endl;
 }
