@@ -11,13 +11,13 @@ void handleFile();
 void testArray();
 void testPointerCanShu();
 void testMianCanShu(int argc, char** argv);
+void writeFile();
 
 int main(int argc, char** argv)
 {
-	testArray();
+	writeFile();
 	return 0;
 }
-
 
 void testZhiZhen() {
 
@@ -158,4 +158,19 @@ void testMianCanShu(int argc, char** argv)
 		++argv;
 	}
 	std::cout << "命令行详细参数为:" << s << std::endl;
+}
+
+void writeFile()
+{
+	std::ofstream write;
+	write.open("D:\\test.txt", std::ios::app);
+	if (!write.is_open()) {
+		std::cerr << "文件已经被打开了" << std::endl;
+	}
+	else {
+		for (int i = 0; i < 5; i++) {
+			write << "ilovechina" << std::endl;
+		}
+		write.close();
+	}
 }
